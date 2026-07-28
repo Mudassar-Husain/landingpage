@@ -126,9 +126,7 @@
 <!-- body -->
 
 
-<?php
-include'header.php';
-?>
+
 <section id="pricing" class=" bg-light">
     <div class="container py-4">
         <p class="text-center text-primary fw-samibold small text-uppercase mb-1">Simple. Transparent. Affordable.</p>
@@ -369,113 +367,27 @@ include'header.php';
 <section class="py-5">
   <div class="container py-4">
     <h2 class="text-center fw-bold mb-5">What Our Customers Say</h2>
-    <?php
-      // ============================================================
-      // $testimonials -> Ye ek PHP "ARRAY" (list) hai.
-      // Array men hum multiple values ek sath store kar sakte hain.
-      // 
-      // Yahan hum ne "array of arrays" banaya hai:
-      // Bahar wala array 3 customers ki list hai [0, 1, 2],
-      // aur har customer khud ek chhota array hai jismen 
-      // "name", "role", "text" keys (labels) k sath data hai.
-      // Isay "Associative Array" kehte hain (index number ki jaga 
-      // hum apne khud k naam/keys use karte hain jese "name" => "value").
-      // ============================================================
-      $testimonials = [
-        ["name" => "Rajesh Kumar", "role" => "Business Owner", "text" => "Excellent hosting and outstanding support! My website has never been faster. Highly recommended!"],
-        ["name" => "Neha Sharma", "role" => "Blogger", "text" => "Their support team is amazing. They resolved my issue in minutes. Great service!"],
-        ["name" => "John D'Souza", "role" => "Developer", "text" => "Very reliable hosting with 99.99% uptime. I'm using their VPS and I'm extremely satisfied."],
-      ];
-    ?>
+   
     <div class="row g-4">
-      <?php 
-        // ============================================================
-        // foreach -> Ye PHP ka LOOP keyword hai. Iska kaam hai kisi 
-        // array k HAR item par ek ek kar k chalna (repeat karna).
-        //
-        // "foreach ($testimonials as $t)" ka matlab: 
-        // "$testimonials" array k andar jitne bhi customers hain, 
-        // un sab men se HAR EK customer ko baari baari $t (chhota, 
-        // temporary variable) men rakho, aur neeche wala HTML code 
-        // us $t k liye print karo. Phir agle customer k liye phir 
-        // se yehi HTML print karo... aur ye tab tak chalta rahega 
-        // jab tak array khatam na ho jaye (yani 3 dafa chalega, 
-        // kyunke array men 3 customers hain).
-        //
-        // Is tarah humein sirf EK BAAR card ka HTML likhna para, 
-        // aur wo teeno customers k liye khud-b-khud repeat ho gaya.
-        // ============================================================
-        foreach ($testimonials as $t): 
-      ?>
+      
       <div class="col-md-4">
         <div class="card testimonial-card h-100 p-4 border-0 shadow-sm">
           <div class="text-warning mb-2">
             <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
           </div>
 
-          <p class="text-muted small">"<?php 
-            // ============================================================
-            // htmlspecialchars() -> Ye PHP ka SECURITY function hai.
-            // Iska kaam hai: agar user ka diya hua text men koi 
-            // HTML special characters (jese <, >, ", ') hon, to unhe 
-            // "safe" bana dena taake wo browser men code ki tarah 
-            // execute na ho jayein (isse "XSS attack" naam ka 
-            // security issue rukta hai). 
-            //
-            // Hamesha jab bhi PHP se koi text page par print karein 
-            // (especially agar wo text kisi form/user se aaya ho), 
-            // to usay htmlspecialchars() k andar rakh kar print karna 
-            // achi practice (best practice) hai.
-            // ============================================================
-            echo htmlspecialchars($t['text']); 
-          ?>"</p>
+          <p class="text-muted small"></p>
 
           <div class="d-flex align-items-center mt-3">
-            <div class="avatar-circle me-3"><?php 
-              // ============================================================
-              // Ye line customer k naam ka PEHLA LETTER (jese "Rajesh" 
-              // se sirf "R") nikal kar circle k andar dikhati hai — 
-              // jese WhatsApp/Gmail men profile picture ki jaga 
-              // letter wala gol icon hota hai.
-              //
-              // In-built functions jo yahan use hue:
-              //
-              // 1) substr($t['name'], 0, 1)
-              //    "substr" ka matlab hai "sub-string" (poore text 
-              //    men se ek chhota tukra nikalna).
-              //    Parameters: (jis text se nikalna hai, kahan se 
-              //    shuru karna hai [0 = pehle letter se], kitne 
-              //    letters chahiye [1 = sirf 1 letter]).
-              //    Result: agar naam "Rajesh Kumar" hai, to ye "R" 
-              //    wapas dega.
-              //
-              // 2) strtoupper(...)
-              //    "str" = string, "to upper" = capital letters men 
-              //    badalna. Agar pehle se letter chhota (lowercase) 
-              //    ho to bhi ye usay BARA (uppercase) bana dega.
-              //
-              // Dono functions ko humne "nest" kiya hai (ek dusre 
-              // k andar), yani pehle substr() chalega, uska result 
-              // strtoupper() k andar jayega, aur akhri result echo 
-              // se print hoga.
-              // ============================================================
-              echo strtoupper(substr($t['name'], 0, 1)); 
-            ?></div>
+            <div class="avatar-circle me-3"></div>
             <div>
-              <h6 class="mb-0 fw-semibold"><?php echo htmlspecialchars($t['name']); ?></h6>
-              <span class="small text-muted"><?php echo htmlspecialchars($t['role']); ?></span>
+              <h6 class="mb-0 fw-semibold"></h6>
+              <span class="small text-muted"></span>
             </div>
           </div>
         </div>
       </div>
-      <?php 
-        // endforeach -> Ye batata hai PHP ko k humara foreach loop 
-        // yahan KHATAM ho raha hai. Jab hum HTML k beech men PHP loop 
-        // likhte hain (jese upar "foreach(...):" colon ke sath likha), 
-        // to usay band (close) karne k liye "endforeach;" likhte hain, 
-        // curly brackets { } ki jaga.
-        endforeach; 
-      ?>
+      
     </div>
   </div>
 </section>
@@ -649,8 +561,7 @@ include'header.php';
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
-</body>
-</html>
+
     <!-- footer -->
 
     <!-- CTA Banner End -->
