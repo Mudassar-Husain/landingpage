@@ -1,0 +1,189 @@
+/* ============================================================
+   STYLE.CSS -> Ye hamari custom (khud ki banayi) CSS file hai.
+   Bootstrap sab kuch nahi de sakta (jese specific gradient colors,
+   custom icon boxes), isliye hum apni CSS yahan likhte hain aur 
+   isay header.php men <link> tag se jorha hai.
+   ============================================================ */
+
+/* 
+  :root -> Ye CSS ka special selector hai jo poori website k liye 
+  hota hai (jese PHP men koi "global variable" ho). Iske andar hum 
+  "CSS Variables" bana rahe hain (-- se shuru hone wale naam).
+  Fayda: agar kal ko brand color badalna ho, to sirf yahan 1 jagah 
+  color change karo, poori site men automatically badal jayega.
+*/
+:root {
+  --brand-blue: #1e5fff;
+  --brand-blue-dark: #0f2f7a;
+  --brand-navy: #071033;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* poori site ka default font */
+  color: #222;
+}
+
+/* Bootstrap ke default primary color ko apne brand blue se replace kar rahe hain */
+.btn-primary {
+  background-color: var(--brand-blue); /* var() = upar wala variable use karne ka tareeqa */
+  border-color: var(--brand-blue);
+}
+.btn-primary:hover {
+  background-color: var(--brand-blue-dark);
+  border-color: var(--brand-blue-dark);
+}
+.btn-outline-primary {
+  color: var(--brand-blue);
+  border-color: var(--brand-blue);
+}
+.btn-outline-primary:hover {
+  background-color: var(--brand-blue);
+  border-color: var(--brand-blue);
+}
+.text-primary { color: var(--brand-blue) !important; }
+
+/* ===== Hero Section ===== */
+.hero-section {
+  /* radial-gradient = gol shakal men color phailta hai, ek point se */
+  background: radial-gradient(circle at 80% 30%, #1a3fa8 0%, var(--brand-navy) 60%);
+}
+.hero-icon {
+  font-size: 14rem; /* bara icon size */
+  color: rgba(255,255,255,0.9);
+  filter: drop-shadow(0 0 40px rgba(30,95,255,0.6)); /* halka glow effect */
+}
+.brands-strip {
+  border-top: 1px solid #eee;
+}
+
+/* ===== Pricing Cards ===== */
+.pricing-card {
+  border: 1px solid #e9ecef;
+  border-radius: 16px;
+  transition: transform .2s ease; /* transition = animation smooth banata hai */
+}
+.pricing-card:hover {
+  transform: translateY(-6px); /* mouse le jane par card thora upar uthega */
+}
+.pricing-popular {
+  border: 2px solid var(--brand-blue);
+  border-radius: 16px;
+  position: relative; /* taake badge (Most Popular) is card k andar sahi jagah lage */
+}
+.badge-popular {
+  position: absolute; /* is card k andar "float" karega */
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%); /* isay bilkul center karne k liye */
+  background: var(--brand-blue);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 16px;
+  border-radius: 20px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+/* ===== Feature Boxes (Why Choose Us) ===== */
+.feature-box {
+  border: 1px solid #eef0f4;
+  border-radius: 14px;
+  background: #fff;
+  transition: box-shadow .2s ease;
+}
+.feature-box:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+.feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%; /* 50% = poora gol (circle) shape */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* icon ko box k bilkul beech men rakhta hai */
+  font-size: 1.5rem;
+}
+.bg-purple-subtle { background-color: #f1e9ff; }
+.text-purple { color: #7b3fe4; }
+
+/* ===== Hosting Solutions Boxes ===== */
+.solution-box {
+  border: 1px solid #eef0f4;
+  border-radius: 12px;
+  background: #fff;
+  transition: box-shadow .2s ease;
+}
+.solution-box:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.06); }
+
+.speed-banner-img {
+  background: linear-gradient(135deg, #1a3fa8, #071033); /* seedhi line men color mix hota hai */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.speed-banner-img i {
+  font-size: 5rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ===== Stats Bar ===== */
+.stats-bar {
+  background: var(--brand-navy);
+}
+
+/* ===== Testimonials ===== */
+.testimonial-card {
+  border-radius: 14px;
+}
+.avatar-circle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--brand-blue);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+/* ===== Blog Cards ===== */
+.blog-thumb {
+  height: 160px;
+  background: linear-gradient(135deg, #1a3fa8, #071033);
+  border-radius: 8px 8px 0 0; /* sirf upar wale corners gol hain */
+}
+.blog-thumb i {
+  font-size: 3rem;
+  color: rgba(255,255,255,0.85);
+}
+
+/* ===== CTA Banner ===== */
+.cta-section {
+  background: linear-gradient(90deg, var(--brand-blue), #0a3fc4);
+}
+
+/* ===== Footer ===== */
+.footer-section {
+  background: var(--brand-navy);
+}
+.footer-link {
+  color: rgba(255,255,255,0.6);
+  text-decoration: none; /* underline hata di */
+}
+.footer-link:hover {
+  color: #fff;
+}
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+}
+.social-icon:hover {
+  background: var(--brand-blue);
+}
